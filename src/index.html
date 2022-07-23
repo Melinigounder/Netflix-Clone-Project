@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix Clone</title>
+    <link rel="stylesheet" href="css/stylesheet.css">
+</head>
+
+<body>
+    <div id="app-landing">
+        <header>
+            <div class="nav" id="nav">
+                <img src="https://i.ibb.co/r5krrdz/logo.png" alt="" class="nav__logo" />
+                <a href="src/pages/MovieDetail.html">
+                </a>
+
+                <a href="#Fantasy">Fantasy</a>
+                <a href="#Action">Action</a>
+                <a href="#Drama">Drama</a>
+                <a href="#Comedy">Comedy</a>
+                <a href="#Adventure">Adventure</a class="sub-nav">
+                <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
+                <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
+                <a href="#">Account</a>
+                </nav>
+
+        </header>
+
+        <div class="banner" :style="{ backgroundImage: 'url(' + poster + ')' }" @mouse0ver="hoverTrack = true "
+            @mouseleave="hoverTrack = false">
+            <div class="banner__contents">
+                <h1 class="banner__title">{{title}}</h1>
+                <div class="banner__buttons">
+                </div>
+                <th style="direction:ltr; padding: top 2em;text-align:center; padding-right: 0"
+                    class=" col-lg-4 col-md-6">
+                    <h3 class="banner__description">
+                        {{description}}
+                    </h3>
+            </div>
+            <div class="banner__contents2" v-if="hoverTrack">
+                <iframe width="506%" height="1000%" :src="movies[1].Video" title="Youtubenvideo player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture in picture"></iframe>
+            </div>
+            <div class="banner__fadeBottom">
+
+            </div>
+        </div>
+
+        <div>
+            <form class="search-box">
+                <input id="searchText" v-model="searchInput.searchText" type="text" placeholder="Enter Your Search"
+                    required>
+                <input id="searchButton" type="button" value="Search" v-on:click="theSearch" />
+            </form>
+
+            <div>
+                <h1 v-if="fullList" class="fullListClass">Watchlist is full</h1>
+            </div>
+        </div>
+        <div v-show="!searched" class="movies-list">
+
+            <span></span>
+        </div>
+
+        <div class="movies">
+            <div v-for="movie in movies">
+                <h1>{{movie.title}}</h1>
+            </div>
+        </div>
+
+
+        <!--Search-->
+        <div v-show="searched" class="movies-list row__posters">
+            <div v-for="(event, index) in filteredMoviesTitle" class="movie row__poster">
+                <a class="movie-link">
+                    <div class="product-image">
+                        <img :src="event.Poster" alt="Movie Poster">
+                        <div class="type">{{event.Genre}}</div>
+                        <div class="type2">{{event.ReleaseDate}}</div>
+                        <div class="type3"><button v-on:click="addToWatchList(event)">Add</button></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!--Coming Soon-->
+        <div class="row">
+            <h2>COMING SOON</h2>
+            <div class="movies-list row__posters">
+                <div v-for="(event, index) in filteredMoviesComingSoon" class="movie row__poster row__posterLarge">
+                    <a class="movie-link">
+                        <div class="product-image">
+                            <img :src="event.Poster" alt="Movie Poster" v-on:click="changeBanner(event)">
+                            <div class="type">{{event.Genre}}</div>
+                            <div class="type3">{{event.ReleaseDate}}</div>
+                            <div class="type3"><button v-on:click="addToWatchList (event)">Add</button>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--On Show-->
+        <div class="row">
+            <h2>On Show</h2>
+            <div class="movies-list row__posters">
+                <div v-for="(event, index) in filteredMoviesOnShow" class="movie row__poster row__posterLarge">
+                    <a class="movie-link">
+                        <div class="product-image">
+                            <img :src="event.Poster" alt="Movie Poster" v-on:click="changeBanner(event)">
+                            <div class="type">{{event.Genre}}</div>
+                            <div class="type3">{{event.ReleaseDate}}</div>
+                            <div class="type3"><button v-on:click="watchList (event)">Add</button>
+                            </div>
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!--WatchList-->
+        <div class="row">
+            <h2>WatchList</h2>
+            <div class="movies-list row__posters">
+                <div v-for="watch in watchList" class="movie row__poster row__posterLarge">
+                    <a class="movie-link">
+                        <div class="product-image">
+                            <img :src="watch.Poster" alt="Movie Poster" v-on:click="changeBanner(watch)">
+                            <div class="type">{{watch.Genre}}</div>
+                            <div class="type3">{{watch.ReleaseDate}}</div>
+                            <!--<div class="type3"><button v-on:click="addToWatchList (event)">Add</button>-->
+                        </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        const nav = document.getElementById("nav");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY >= 100) {
+                nav.classList.add("nav__black");
+            } else {
+                nav.classList.remove("nav__black");
+            }
+        });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
