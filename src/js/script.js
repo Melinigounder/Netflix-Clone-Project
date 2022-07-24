@@ -3,10 +3,14 @@ const landing = new Vue({
     data: {
      searchInput:{
          searchText: "",
-         
      },
-
+   
      searched:false,
+	 action:false,
+	 drama:false,
+	 comedy:false,
+	 adventure:false,
+	 crime:false,
      inList:false,
      hoverTrack: false,
      fullList:false,
@@ -32,8 +36,7 @@ const landing = new Vue({
              ReleaseDate: "2005",
              Genre: "Fantasy",
              Actors: "7",
-             Video: "https://www.youtube.com/embed/gmRKv7n2If8?rel=0;&autoplay=1",
-        
+             Video:"https://youtu.be/OFVGCUIXJls?t=2",
          },
      
          {
@@ -1037,6 +1040,46 @@ const landing = new Vue({
  
     },
 	
+     filteredAction() {
+         let filteredMoviesGenre = this.movies.filter((movie) =>{
+             return movie.Genre.toLowerCase().includes('action');
+ 
+         })
+     
+         return filteredMoviesGenre;
+      },
+	    filteredDrama() {
+         let filteredMoviesGenre = this.movies.filter((movie) =>{
+             return movie.Genre.toLowerCase().includes('drama');
+ 
+         })
+     
+         return filteredMoviesGenre;
+      },
+	      filteredComedy() {
+         let filteredMoviesGenre = this.movies.filter((movie) =>{
+             return movie.Genre.toLowerCase().includes('comedy');
+ 
+         })
+     
+         return filteredMoviesGenre;
+      },
+	      filteredAdventure() {
+         let filteredMoviesGenre = this.movies.filter((movie) =>{
+             return movie.Genre.toLowerCase().includes('adventure');
+ 
+         })
+     
+         return filteredMoviesGenre;
+      },
+	      filteredCrime() {
+         let filteredMoviesGenre = this.movies.filter((movie) =>{
+             return movie.Genre.toLowerCase().includes('crime');
+ 
+         })
+     
+         return filteredMoviesGenre;
+      },
  
     },
     
@@ -1046,16 +1089,52 @@ const landing = new Vue({
      theSearch(){
         this.searched = !this.searched;
      },
-     makeActive:function(item){
-        this.active=item;
+       theAction(){
+        this.action = true
+		this.drama = false;
+		this.comedy = false;
+		this.adventure = false;
+		this.crime = false;
+		//Action Drama Comedy Adventure Crime
      },
-     
+	    theDrama(){
+        this.action = false;
+		this.drama = true;
+		this.comedy = false;
+		this.adventure = false;
+		this.crime = false;
+		//Action Drama Comedy Adventure Crime
+     },
+	    theComedy(){
+        this.action = false;
+		this.drama = false;
+		this.comedy = true;
+		this.adventure = false;
+		this.crime = false;
+		//Action Drama Comedy Adventure Crime
+     },
+	    theAdventure(){
+        this.action = false;
+		this.drama = false;
+		this.comedy = false;
+		this.adventure = true;
+		this.crime = false;
+		//Action Drama Comedy Adventure Crime
+     },
+	    theCrime(){
+        this.action = false;
+		this.drama = false;
+		this.comedy = false;
+		this.adventure = false;
+		this.crime = true;
+		//Action Drama Comedy Adventure Crime
+     },
      addToWatchList: function (event) {
 	  console.log(this.inList,this.watchList.length);
 	  
 	  if(this.watchList.length == 0)
 	  {
-		  console.log("The watchList is empty add to list");
+		  console.log("The watchlist is empty add to list");
 		  this.watchList.push (event);
 	  }
 	  else
@@ -1085,12 +1164,13 @@ const landing = new Vue({
 	
      },
 	 changeBanner: function (event) {
-	  console.log("Test",event);
+		 console.log("Test",event);
       this.title = event.Title;
 	  this.description = event.Description;
 	  this.poster = event.Poster;
-     },
-     
+     }
+	 
+	
     },
   mounted() {
     console.log('App mounted!');
@@ -1106,3 +1186,4 @@ const landing = new Vue({
     },
   },
  });
+ 

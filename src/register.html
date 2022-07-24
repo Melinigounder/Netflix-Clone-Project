@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 <title>Netflix - Watch TV Shows Online, Watch Movies Online</title>
  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="app-login">
+<div id="app-register">
     <header class="showcase">
         
 
@@ -15,31 +16,29 @@
 
             <div class="showcase-content">
                 <div class="formm">
-                    
-                        <h1>Sign In</h1>
+             
+                        <h1>Sign Up</h1>
                         <div class="info">
                             <input class="email" type="email" v-model="input.username" placeholder="Email or phone number"> <br>
-                            <input class="email" type="password" v-model="input.password" placeholder="Password">
+                            <input class="email" type="password" v-model="input.password" placeholder="Password"><br>
+							 <input class="email" type="password" v-model="input.confirmpassword" placeholder="Confirm Password">
                         </div>
+						 <ul class="helper-text">
+							<li class="length">Must be at least 8 characters long.</li>
+							<li class="lowercase">Must contain a lowercase letter.</li>
+							<li class="uppercase">Must contain an uppercase letter.</li>
+							<li class="special">Must contain a number or special character.</li>
+						</ul>
                         <div class="btn">
-                            <button class="btn-primary"  v-on:click="login()">Sign In</button>
+                            <button class="btn-primary" v-on:click="register()">Sign Up</button>
                         </div>
-                        <div class="help">
-                            <div>
-                                <input value="true" type="checkbox"><label>Remember me</label>
-                            </div>
-
-                            <a href="https://www.netflix.com/dz-en/LoginHelp">Need Help ?</a>
-                        
-                        </div>
-
-                 
+        
     
                 </div>
-            
+                
                 <div class="signup">
                     <p>New to Netflix ?</p>
-                    <a href="register.html">Sign up now</a>
+                    <a href="https://www.netflix.com/dz-en/">Sign up now</a>
                 </div>
                 <div class="more">
                     <p>
@@ -79,8 +78,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
 <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
 
-    <script src="js/index.js"></script>
-
+    <script src="js/register.js"></script>
 </body>
 </html>
 
