@@ -10,18 +10,39 @@
 </head>
 
 <body>
+    
+    <section class="main">
+        <img src="img/back.jpg" class="fit">
+        <div class="box">
+            <div class="heading">
+                <h2>Unlimited movies,TV Shows, and more.</h2>
+                <h5>watch anywhere.Cancel anytime</h5>\
+                <p>Ready to watch? Enter your email to create 
+                    or restart your membership</p>
+            </div>
+            <div class="sign">
+                <input type="text" name="" placeholder="Enter Email">
+                <a href="#">Get Started</a>
+            </div>
+        </div>
+    
+       </section>
+        
+    
     <div id="app-landing">
         <header>
             <div class="nav" id="nav">
                 <img src="https://i.ibb.co/r5krrdz/logo.png" alt="" class="nav__logo" />
                 <a href="src/pages/MovieDetail.html">
                 </a>
-
+                
                 <a href="#Fantasy">Fantasy</a>
                 <a href="#Action">Action</a>
-                <a href="#Drama">Drama</a>
+                <a href="#Drama"class="Drama">Drama</a>
                 <a href="#Comedy">Comedy</a>
-                <a href="#Adventure">Adventure</a class="sub-nav">
+                <a href="#Adventure">Adventure</a>
+                
+                <nav class="sub-nav">
                 <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
                 <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
                 <a href="#">Account</a>
@@ -42,8 +63,8 @@
                     </h3>
             </div>
             <div class="banner__contents2" v-if="hoverTrack">
-                <iframe width="506%" height="1000%" :src="movies[1].Video" title="Youtubenvideo player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture in picture"></iframe>
+                <iframe width="506%" height="1000%" :src="movies[1].Video" title="YouTube video layer" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
             </div>
             <div class="banner__fadeBottom">
 
@@ -116,7 +137,7 @@
                             <img :src="event.Poster" alt="Movie Poster" v-on:click="changeBanner(event)">
                             <div class="type">{{event.Genre}}</div>
                             <div class="type3">{{event.ReleaseDate}}</div>
-                            <div class="type3"><button v-on:click="watchList (event)">Add</button>
+                            <div class="type3"><button v-on:click="addToWatchList (event)">Add</button>
                             </div>
 
                         </div>

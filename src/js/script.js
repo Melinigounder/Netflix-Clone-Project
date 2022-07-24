@@ -5,7 +5,7 @@ const landing = new Vue({
          searchText: "",
          
      },
-     
+     active: 'home',
 
      searched:false,
      inList:false,
@@ -33,7 +33,8 @@ const landing = new Vue({
              ReleaseDate: "2005",
              Genre: "Fantasy",
              Actors: "7",
-             Video:"https://youtu.be/OFVGCUIXJls?t=2",
+             Video: "https://www.youtube.com/embed/gmRKv7n2If8?rel=0;&autoplay=1",
+        
          },
      
          {
@@ -1046,13 +1047,16 @@ const landing = new Vue({
      theSearch(){
         this.searched = !this.searched;
      },
+     makeActive:function(item){
+        this.active=item;
+     },
      
      addToWatchList: function (event) {
 	  console.log(this.inList,this.watchList.length);
 	  
 	  if(this.watchList.length == 0)
 	  {
-		  console.log("The watchlist is empty add to list");
+		  console.log("The watchList is empty add to list");
 		  this.watchList.push (event);
 	  }
 	  else
