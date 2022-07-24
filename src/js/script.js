@@ -6,7 +6,6 @@ const landing = new Vue({
      },
    
      searched:false,
-	 action:false,
 	 drama:false,
 	 comedy:false,
 	 adventure:false,
@@ -1018,9 +1017,7 @@ const landing = new Vue({
          })
          return orderedMovies;
      },
-     //filteredMoviesTitle(){
-     //return this.filteredMoviesFunction();
-     //},
+     
      filteredMoviesComingSoon(){
          let filteredMoviesComingSoon= this.movies.filter((movie)=>{
              return movie.CommingSoon.toLowerCase().includes("1".toLowerCase());
@@ -1040,14 +1037,6 @@ const landing = new Vue({
  
     },
 	
-     filteredAction() {
-         let filteredMoviesGenre = this.movies.filter((movie) =>{
-             return movie.Genre.toLowerCase().includes('action');
- 
-         })
-     
-         return filteredMoviesGenre;
-      },
 	    filteredDrama() {
          let filteredMoviesGenre = this.movies.filter((movie) =>{
              return movie.Genre.toLowerCase().includes('drama');
@@ -1089,16 +1078,9 @@ const landing = new Vue({
      theSearch(){
         this.searched = !this.searched;
      },
-       theAction(){
-        this.action = true
-		this.drama = false;
-		this.comedy = false;
-		this.adventure = false;
-		this.crime = false;
-		//Action Drama Comedy Adventure Crime
-     },
+       
 	    theDrama(){
-        this.action = false;
+        this.family = false;
 		this.drama = true;
 		this.comedy = false;
 		this.adventure = false;
@@ -1106,7 +1088,7 @@ const landing = new Vue({
 		//Action Drama Comedy Adventure Crime
      },
 	    theComedy(){
-        this.action = false;
+        this.family = false;
 		this.drama = false;
 		this.comedy = true;
 		this.adventure = false;
@@ -1114,7 +1096,7 @@ const landing = new Vue({
 		//Action Drama Comedy Adventure Crime
      },
 	    theAdventure(){
-        this.action = false;
+        this.family = false;
 		this.drama = false;
 		this.comedy = false;
 		this.adventure = true;
@@ -1122,7 +1104,7 @@ const landing = new Vue({
 		//Action Drama Comedy Adventure Crime
      },
 	    theCrime(){
-        this.action = false;
+        this.family = false;
 		this.drama = false;
 		this.comedy = false;
 		this.adventure = false;
