@@ -3,7 +3,7 @@
  
  How to use this application:
 
- * Firtly one has to sign in using your own personal login details.
+ * One MUST sign up FIRST than sign in after it will than log you in. !IMPORTANT
  * Once you in you may click on the movie and read a description to help you understand what the movie is about.
  * Once satisfied you may click on the add button which will be added on to your watchlist.
  * The Movies on the watchlist will also be added on to the localStorage to remember which movies you have already watched.
