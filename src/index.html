@@ -10,27 +10,10 @@
 </head>
 
 <body>
-    
-    <section class="main">
-        <img src="img/back.jpg" class="fit">
-        <div class="box">
-            <div class="heading">
-                <h2>Unlimited movies,TV Shows, and more.</h2>
-                <h5>watch anywhere.Cancel anytime</h5>\
-                <p>Ready to watch? Enter your email to create 
-                    or restart your membership</p>
-            </div>
-            <div class="sign">
-                <input type="text" name="" placeholder="Enter Email">
-                <a href="#">Get Started</a>
-            </div>
-        </div>
-    
-       </section>
-        
-    
     <div id="app-landing">
+        
         <header>
+
             <div class="nav" id="nav">
                 <img src="https://i.ibb.co/r5krrdz/logo.png" alt="" class="nav__logo" />
                 <a href="src/pages/MovieDetail.html">
@@ -41,12 +24,6 @@
                 <a href="#Drama"class="Drama">Drama</a>
                 <a href="#Comedy">Comedy</a>
                 <a href="#Adventure">Adventure</a>
-                
-                <nav class="sub-nav">
-                <a href="#"><i class="fas fa-search sub-nav-logo"></i></a>
-                <a href="#"><i class="fas fa-bell sub-nav-logo"></i></a>
-                <a href="#">Account</a>
-                </nav>
 
         </header>
 
@@ -62,15 +39,19 @@
                         {{description}}
                     </h3>
             </div>
-            <div class="banner__contents2" v-if="hoverTrack">
-                <iframe width="506%" height="1000%" :src="movies[1].Video" title="YouTube video layer" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+             <!--Video Trailer-->
+            <div id="container">
+                <div id="outerdiv"> 
+                <iframe src="https://www.youtube.com/embed/2cBja3AbahY" title="Willy Wonka & The Chocolate Factory (1971) Official Trailer - Gene Wilder, Roald Dahl Movie HD" frameborder="0" allow="accelerometer; autoplay; 
+                clipboard-write; encrypted-media; gyroscope; picture-in-picture" id="video" allowfullscreen></iframe>
+
             </div>
+        </div>
             <div class="banner__fadeBottom">
 
             </div>
         </div>
-
+ <!--Search-box form-->
         <div>
             <form class="search-box">
                 <input id="searchText" v-model="searchInput.searchText" type="text" placeholder="Enter Your Search"
@@ -156,7 +137,7 @@
                             <img :src="watch.Poster" alt="Movie Poster" v-on:click="changeBanner(watch)">
                             <div class="type">{{watch.Genre}}</div>
                             <div class="type3">{{watch.ReleaseDate}}</div>
-                            <!--<div class="type3"><button v-on:click="addToWatchList (event)">Add</button>-->
+                    
                         </div>
                 </div>
                 </a>

@@ -5,7 +5,6 @@ const landing = new Vue({
          searchText: "",
          
      },
-     active: 'home',
 
      searched:false,
      inList:false,
