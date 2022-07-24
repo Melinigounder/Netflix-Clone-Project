@@ -61,7 +61,7 @@
             <li><a href="#Comedy" v-on:click="theComedy">Comedy</a></li>
             <li><a href="#Adventure" v-on:click="theAdventure">Adventure</a></li>
             <li><a href="#Crime" v-on:click="theCrime">Crime</a></li>
-            <label for=" chk1" class="menu-close">
+            
             
         </ul>
     
@@ -169,7 +169,7 @@
                     <img :src="event.Poster" alt="Movie Poster" v-on:click="changeBanner(event)">
                     <div class="type">{{event.Genre}}</div>
                     <div class="type3">{{event.ReleaseDate}}</div>
-                    <div class="type3"><button v-on:click="watchList (event)">Add</button>
+                    <div class="type3"><button v-on:click="addToWatchList (event)">Add</button>
                     </div>
 
                 </div>

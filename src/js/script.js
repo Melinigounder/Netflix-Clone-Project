@@ -1161,7 +1161,7 @@ const landing = new Vue({
   watch: {
     watchList: {
       handler() {
-        console.log('WatchList changed!');
+        console.log('watchList changed!');
         localStorage.setItem('watchList', JSON.stringify(this.watchList));
       },
       deep: true,
